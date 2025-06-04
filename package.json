@@ -1,0 +1,33 @@
+{
+  "name": "lynx-app-poc",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "rspeedy build",
+    "check": "biome check --write",
+    "dev": "rspeedy dev",
+    "format": "biome format --write",
+    "preview": "rspeedy preview",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@lynx-js/react": "^0.109.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@lynx-js/qrcode-rsbuild-plugin": "^0.3.6",
+    "@lynx-js/react-rsbuild-plugin": "^0.10.2",
+    "@lynx-js/rspeedy": "^0.9.8",
+    "@lynx-js/types": "3.3.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@types/react": "^18.3.22",
+    "jsdom": "^26.1.0",
+    "typescript": "~5.8.3",
+    "vitest": "^3.1.4"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "private": true,
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+}

@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
@@ -33,6 +34,17 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.1"
+    }
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
 }
 
 dependencies {
@@ -47,26 +59,26 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     // lynx dependencies
-    implementation("org.lynxsdk.lynx:lynx:3.2.0")
-    implementation("org.lynxsdk.lynx:lynx-jssdk:3.2.0")
-    implementation("org.lynxsdk.lynx:lynx-trace:3.2.0")
-    implementation("org.lynxsdk.lynx:primjs:2.12.0")
+    implementation(libs.lynx)
+    implementation(libs.lynx.jssdk)
+    implementation(libs.lynx.trace)
+    implementation(libs.primjs)
 
     // integrating image-service
-    implementation("org.lynxsdk.lynx:lynx-service-image:3.2.0")
+    implementation(libs.lynx.service.image)
 
     // image-service dependencies, if not added, images cannot be loaded; if the host APP needs to use other image libraries, you can customize the image-service and remove this dependency
-    implementation("com.facebook.fresco:fresco:2.3.0")
-    implementation("com.facebook.fresco:animated-gif:2.3.0")
-    implementation("com.facebook.fresco:animated-webp:2.3.0")
-    implementation("com.facebook.fresco:webpsupport:2.3.0")
-    implementation("com.facebook.fresco:animated-base:2.3.0")
+    implementation(libs.fresco)
+    implementation(libs.animated.gif)
+    implementation(libs.animated.webp)
+    implementation(libs.webpsupport)
+    implementation(libs.animated.base)
 
     // integrating log-service
-    implementation("org.lynxsdk.lynx:lynx-service-log:3.2.0")
+    implementation(libs.lynx.service.log)
 
     // integrating http-service
-    implementation("org.lynxsdk.lynx:lynx-service-http:3.2.0")
+    implementation(libs.lynx.service.http)
 
-    implementation("com.squareup.okhttp3:okhttp:4.9.0")
+    implementation(libs.okhttp)
 }
